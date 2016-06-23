@@ -20,10 +20,10 @@ ALLOWED_HOSTS = ['*']
 SHARE_URL = "http://launchwithcode.com/?ref="
 # Static asset configuration
 # import os
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = 'staticfiles'
-# STATIC_URL = '/static/'
+ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ STATIC_ROOT = 'staticfiles'
+ STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
+ STATICFILES_DIRS = (
+     os.path.join(BASE_DIR, 'static'),
+ )
