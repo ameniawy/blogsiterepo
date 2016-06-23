@@ -1,0 +1,12 @@
+{%extends 'layout/layout1.html' %}
+
+{% block title %}Video Page{% endblock %}
+
+{% block content %}
+
+{% for video in data %}
+	<h1>{{video.title}}</h1>
+	<p>{{video.description}}</p>
+{% endfor %}
+{% endblock%}
+
