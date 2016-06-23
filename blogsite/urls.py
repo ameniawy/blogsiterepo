@@ -33,11 +33,11 @@ urlpatterns = [
 
     url(r'^succ/', views.new_user, name='usercreated'),
     url(r'^succ', views.new_user, name='usercreated'),
-    #url(r'^', views.error, name='notfound'),
     url(r'^loginsucc', views.login, name='showblog'),
     url(r'^loginsucc/', views.login, name='showblog'),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login',
        {'template_name': 'admin/login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^accounts/profile/$', views.profile, name="showprofile"),
+    url(r'^', views.error, name='notfound'),
 ]
