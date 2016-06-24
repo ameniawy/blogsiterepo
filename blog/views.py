@@ -75,17 +75,19 @@ def login(request):
 
 @login_required 
 def profile(request):
+	user = request.user
+	username = user.get_username()
 	form = BlogForm()
 	data = Blog.objects.all()
-	return TemplateResponse(request,'blog/loggedin.html',{"data": data , "form": form})
+	return TemplateResponse(request,'blog/loggedin.html',{"data": data , "form": form ,"username": username})
 
 
 @login_required
 def filter(request):
 	user = request.user
-	name = user.get_username()
-	data = Blog.objects.all().filter(author = name)
+	username = user.get_username()
+	data = Blog.objects.all().filter(author = username)
 	form = BlogForm()
-	return TemplateResponse(request,'blog/userview.html',{"data": data, "form": form})
+	return TemplateResponse(request,'blog/userview.html',{"data": data, "form": form, "username":username})
 
 
