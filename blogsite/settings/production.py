@@ -27,9 +27,9 @@ SHARE_URL = "http://launchwithcode.com/?ref="
  STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),
  )
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db2.sqlite3'),
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db2.sqlite3'),
+#    }
+#}
