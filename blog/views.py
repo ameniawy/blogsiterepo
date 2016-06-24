@@ -75,8 +75,9 @@ def login(request):
 
 @login_required 
 def profile(request):
+	form = BlogForm()
 	data = Blog.objects.all()
-	return TemplateResponse(request,'blog/loggedin.html',{"data": data})
+	return TemplateResponse(request,'blog/loggedin.html',{"data": data , "form": form})
 
 
 

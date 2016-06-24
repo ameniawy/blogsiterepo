@@ -10,16 +10,19 @@
 	<h3>Hello Bloggers</h3>
 	<p class="title">Feel free to share your thoughts</p>
 
-	<form action="/add/" >
-	    <input type="submit" value ="Add Post" class="newpost">
+	<form action="/blog/" method="post">
+		{% csrf_token %}
+		{{form}}
+		<input type="submit" value="Submit" class="btn" />
 	</form>
+
 	<form action="/accounts/logout/">
-	    <input type="submit" value ="Logout" class="newpost">
+	    <input type="submit" value ="Logout" class="btn">
 	</form>
 
 </div>
 
-{% for blog in data %}
+{% for blog in data reversed %}
 <div class="blog">
 	<h1>{{blog.title}}</h1>
 	<h2>Author: {{blog.author}}</h2>
