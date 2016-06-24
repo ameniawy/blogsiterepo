@@ -39,5 +39,10 @@ urlpatterns = [
        {'template_name': 'admin/login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^accounts/profile/$', views.profile, name="showprofile"),
+    
+    url(r'^filter/', views.filter, name='filteredpage'),
+    url(r'^filter', views.filter, name='filteredpage'),
+
+    #always keep at  bottom
     url(r'^', views.error, name='notfound'),
 ]

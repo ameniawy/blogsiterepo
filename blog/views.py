@@ -80,5 +80,12 @@ def profile(request):
 	return TemplateResponse(request,'blog/loggedin.html',{"data": data , "form": form})
 
 
+@login_required
+def filter(request):
+	user = request.user
+	name = user.get_username()
+	data = Blog.objects.all().filter(author = name)
+	form = BlogForm()
+	return TemplateResponse(request,'blog/userview.html',{"data": data, "form": form})
 
 
