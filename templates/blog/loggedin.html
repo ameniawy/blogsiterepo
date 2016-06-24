@@ -5,7 +5,10 @@
 <div align="right">
 	<h4>Meniawy's Blog</h4>
 	<p class="userhead">Logged in as: {{username}} </p>
-	<p class="profile">Home</p>
+	<p class="body">Click Profile to view your posts only</p>
+	<form action="/filter/">
+	    <input type="submit" value ="Profile" class="btn">
+	</form>
 </div>
 <div align="center">
 	<h3>Hello Bloggers</h3>
@@ -20,11 +23,6 @@
 	<form action="/accounts/logout/">
 	    <input type="submit" value ="Logout" class="btn">
 	</form>
-
-	<form action="/filter/">
-	    <input type="submit" value ="Click To View Your Posts" class="btn">
-	</form>
-
 </div>
 
 {% for blog in data reversed %}
