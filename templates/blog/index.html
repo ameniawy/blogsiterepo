@@ -3,41 +3,28 @@
 {% block title %}Blog Page{% endblock %}
 
 {% block content %}
-<style>
-	h3 {
-    color: 000099;
-    font-family: verdana;
-    font-size: 400%;
-}
-	h1{
-		color: FF0066 ;
-		font-family: verdana;
-    	font-size: 250%;
-	}
-	p  {
-    color: 000033;
-    font-family: courier;
-    font-size: 160%;
-}
-</style>
+
+<div align="right">
+	<h4>Meniawy's Blog</h4>
+</div>
 <div align="center">
 	<h3>Hello Bloggers</h3>
-	<p>Feel free to share your thoughts</p>
+	<p class="title">Feel free to share your thoughts</p>
 
-	<p>Login to post</p>
+	<p class="body">Login to post</p>
 	<form action="/accounts/login/">
-	    <input type="submit" value ="Login">
+	    <input type="submit" value ="Login" class="newpost">
 	</form>
 	<form action="/user/">
-	    <input type="submit" value ="Register New Account">
+	    <input type="submit" value ="Register New Account" class="newpost">
 	</form>
 </div>
 
 {% for blog in data %}
-<div>
+<div class="blog">
 	<h1>{{blog.title}}</h1>
 	<h2>Author: {{blog.author}}</h2>
-	<p>{{blog.body}}</p>
+	<p class="body">{{blog.body}}</p>
 	</div>
 {% endfor %}
 {% endblock%}
