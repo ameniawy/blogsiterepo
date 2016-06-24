@@ -8,6 +8,9 @@
 	<form action="/blog/">
 	    <input type="submit" value ="Home" class="btn">
 	</form>
+	<form action="/accounts/logout/">
+	    <input type="submit" value ="Logout" class="btn">
+	</form>
 </div>
 <div align="center">
 	<h3>Hello Bloggers</h3>
@@ -17,10 +20,6 @@
 		{% csrf_token %}
 		{{form}}
 		<input type="submit" value="Submit" class="btn" />
-	</form>
-
-	<form action="/accounts/logout/">
-	    <input type="submit" value ="Logout" class="btn">
 	</form>
 </div>
 
