@@ -1,5 +1,19 @@
-<form action="/succ/" method="post">
+{%extends 'layout/layout1.html' %}
+
+{% block title %}Blog Page{% endblock %}
+
+{% block content %}
+
+<div align="right">
+	<h4>Meniawy's Blog</h4>
+</div>
+<div align="center">
+	<h3>Registeration</h3>
+	<form action="/succ/" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit" />
 </form>
+	
+</div>
+{% endblock%}
