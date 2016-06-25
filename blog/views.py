@@ -37,7 +37,7 @@ def error(request):
 
 def add_user(request):
 	form = UserForm()
-	return render(request,'blog/newuser.html',{'form':form})
+	return render(request,'blog/newuser2.html',{'form':form})
 
 def new_user(request):
 	form = UserForm(request.POST)
@@ -47,7 +47,7 @@ def new_user(request):
 		password = form.cleaned_data['password']
 		email = form.cleaned_data['email']
 		user = User.objects.create_user(username,email,password)
-	return TemplateResponse(request,'blog/usersucc.html',{})
+	return TemplateResponse(request,'blog/usersucc2.html',{"username": username})
 	
 
 def login(request):
