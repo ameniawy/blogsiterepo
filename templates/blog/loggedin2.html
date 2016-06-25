@@ -81,8 +81,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <div class="col-sm-6">
-          <h1>Hello, bloggers!</h1>
+        <div class="col-sm-4">
+          <h1>Blog Area</h1>
           <p>Feel free to share your thoughts!</p>
           <form action="/blog/" method="post">
             {% csrf_token %}
@@ -90,7 +90,7 @@
             <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
           </form>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <img src="{% static 'img/stark.png' %}" class="img-responsive"/>
         </div>
       </div>
