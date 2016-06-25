@@ -2,9 +2,9 @@ import os
 from django.conf import settings
 
 DEBUG = False
-#TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = False
 
-#DATABASES = settings.DATABASES
+DATABASES = settings.DATABASES
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
@@ -27,6 +27,7 @@ SHARE_URL = "http://launchwithcode.com/?ref="
  STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),
  )
+ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
