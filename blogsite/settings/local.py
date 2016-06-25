@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,11 +124,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = '/Desktop/blogsite/static/static_root'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
 
-STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, 'static'),
- ]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static', 'static_dirs'),
+    #'/Users/jmitch/desktop/lwc/src/static/static_dirs/',
+    # '/Users/jmitch/desktop/lwc/src/static/static_dirs/',
+    # '/Users/jmitch/desktop/lwc/src/static/static_dirs/',
+    # '/Users/jmitch/desktop/lwc/src/static/static_dirs/',
+)
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+MEIDA_URL = '/media/'
