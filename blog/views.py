@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 def home(request):
     data = Blog.objects.all()
-    return TemplateResponse(request,'blog/index.html',{"data": data})
+    return TemplateResponse(request,'blog/index2.html',{"data": data})
 
 @login_required 
 def add(request):
@@ -79,7 +79,7 @@ def profile(request):
 	username = user.get_username()
 	form = BlogForm()
 	data = Blog.objects.all()
-	return TemplateResponse(request,'blog/loggedin.html',{"data": data , "form": form ,"username": username})
+	return TemplateResponse(request,'blog/loggedin2.html',{"data": data , "form": form ,"username": username})
 
 
 @login_required
@@ -88,6 +88,6 @@ def filter(request):
 	username = user.get_username()
 	data = Blog.objects.all().filter(author = username)
 	form = BlogForm()
-	return TemplateResponse(request,'blog/userview.html',{"data": data, "form": form, "username":username})
+	return TemplateResponse(request,'blog/userview2.html',{"data": data, "form": form, "username":username})
 
 
