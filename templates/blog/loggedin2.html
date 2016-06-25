@@ -29,11 +29,27 @@
 
     <style>
       body {
-        padding-top: 50px;
-        padding-bottom: 20px;
+        /*min-height: 5000px;
+        min-width: 5000px;*/
+        background: url('{% static "img/beach.jpg" %}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: conver;
+        background-size: cover;
+        /*background-image: url('{% static "img/beach.jpg" %}');*/
+        /*background-image:url('https://lh4.googleusercontent.com/-FsgMNhfQLSg/AAAAAAAAAAI/AAAAAAAAaRY/3VnF3vSuWKk/photo.jpg');*/
+        /*background-repeat: repeat-x;*/
       }
       p.text-primary{
         font-size: 150%;
+      }
+      .navbar-inverse .navbar-brand, .navbar-brand:hover {
+        color: white;
+        font-size: 180%;
+      }
+      .jumbotron {
+        color: inherit;
+        background-color: #FFFFFF;
       }
   </style>
 
@@ -53,7 +69,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right">
-          <a class="navbar-brand" href="#">Logged in as: {{username}}</a>
+          <h4 style="color:white;">Logged in as: {{username}}</h4>
         </div>
         
         <div class="navbar-form navbar-right">
@@ -84,7 +100,7 @@
         <div class="col-sm-4">
           <h1>Blog Area</h1>
           <p>Feel free to share your thoughts!</p>
-          <form action="/blog/" method="post">
+          <form action="/blog/" method="post" style="text-align: center;">
             {% csrf_token %}
               {{form}}
             <input type="submit" value="Submit" class="btn btn-primary btn-lg" />

@@ -2,7 +2,7 @@ from django import forms
 
 class BlogForm(forms.Form):
 	title = forms.CharField(label='Title:', max_length = 50000 )
-	blog = forms.CharField(label='Your Blog', max_length=50000, widget=forms.Textarea)
+	blog = forms.CharField(label='Post', max_length=50000, widget=forms.Textarea)
 
 class UserForm(forms.Form):
 	username = forms.CharField(label ='Username', max_length = 20)
