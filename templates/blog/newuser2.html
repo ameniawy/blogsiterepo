@@ -26,6 +26,7 @@
     <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">-->
 
     <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><http://getbootstrap.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -84,21 +85,35 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 style="text-align:center;">Register!</h1>
+        <h1 style="text-align:center;"><i class="fa fa-cog fa-spin fa-1x fa-fw" aria-hidden="true"></i> Register</h1>
         <div class="col-sm-6 col-sm-offset-3">
           <form action="/succ/" method="post">
             {% csrf_token %}
             <p>Username:</p>
             {{ form.username.erros }}
-            <input class="form-control" type="username" name="username" placeholder="Username..">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+              <input class="form-control" type="username" name="username" placeholder="Email address">
+            </div>
             <p></p>
             <p>E-Mail:</p>
             {{ form.email.erros }}
-            <input class="form-control" type="email" name="email" placeholder="E-Mail..">
             <p></p>
+
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+              <input class="form-control" type="email" name="email" placeholder="Email address">
+            </div>
+            <p></p>
+
             <p>Password:</p>
             {{ form.password.erros }}
-            <input class="form-control" type="password" name="password" placeholder="Password..">
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+              <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            
             <p></p>
             <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
           </form>
