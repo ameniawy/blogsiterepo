@@ -1,5 +1,5 @@
 import os
-from django.conf import settings
+from django.conf imporet settings
 
 DEBUG = False
 TEMPLATE_DEBUG = False
