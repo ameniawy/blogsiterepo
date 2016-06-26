@@ -11,8 +11,16 @@
 	<h3>Registeration</h3>
 	<form action="/succ/" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
+    {{ form.username.erros }}
+    <input class="form-control" type="username" name="username" placeholder="Username..">
+
+    {{ form.email.erros }}
+    <input class="form-control" type="email" name="email" placeholder="E-Mail..">
+
+    {{ form.password.erros }}
+    <input class="form-control" type="password" name="password" placeholder="Password..">
+
+    <input type="submit" value="Register" />
 </form>
 	
 </div>

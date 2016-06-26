@@ -84,12 +84,25 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Register!</h1>
+        <h1 style="text-align:center;">Register!</h1>
+        <div class="col-sm-6 col-sm-offset-3">
           <form action="/succ/" method="post">
-              {% csrf_token %}
-              {{ form }}
+            {% csrf_token %}
+            <p>Username:</p>
+            {{ form.username.erros }}
+            <input class="form-control" type="username" name="username" placeholder="Username..">
+            <p></p>
+            <p>E-Mail:</p>
+            {{ form.email.erros }}
+            <input class="form-control" type="email" name="email" placeholder="E-Mail..">
+            <p></p>
+            <p>Password:</p>
+            {{ form.password.erros }}
+            <input class="form-control" type="password" name="password" placeholder="Password..">
+            <p></p>
             <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
-        </form>
+          </form>
+          </div>
         <div class="col-md-1">
         
         </div>
