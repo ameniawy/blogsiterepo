@@ -26,13 +26,13 @@
     <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">-->
 
     <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <style>
       body {
         /*min-height: 5000px;
         min-width: 5000px;*/
-        background: url('{% static "img/beach.jpg" %}') no-repeat center center fixed;
+        background: url('{% static "img/black.jpg" %}') no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: conver;
@@ -122,7 +122,7 @@
       {% block content %}
       {% for blog in data reversed %}
         <div class="blog">
-          <h2>{{blog.title}} <span class="label label-info"><i style="color:white;" class="fa fa-user fa-1x"></i> {{blog.author}}</span></h2>
+          <h2 style="color:white;">{{blog.title}} <span class="label label-info"><i style="color:white;" class="fa fa-user fa-1x"></i> {{blog.author}}</span></h2>
           <p class="text-primary">{{blog.body}}</p>
         </div>
       {% endfor %}
@@ -131,10 +131,10 @@
         
       </div>
 
-      <hr>
+      
 
       <footer>
-        <p>&copy; 2016 AHM, Inc.</p>
+        <p style="color:white;">&copy; 2016 Abdelrahman El-Meniawy.</p>
       </footer>
     </div> <!-- /container -->
 
