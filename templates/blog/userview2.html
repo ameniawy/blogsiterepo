@@ -103,7 +103,12 @@
           <p>Feel free to share your thoughts!</p>
           <form action="/blog/" method="post" style="text-align: center;">
             {% csrf_token %}
-              {{form}}
+              {{form.title.erros}}
+              <input class="form-control" type="title" name="title" placeholder="Title..">
+              <p></p>
+              {{form.blog.errors}}
+              <textarea class="form-control" type="blog" name="blog" placeholder="Post.." rows="9"></textarea>
+              <p></p>
             <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
           </form>
         </div>
