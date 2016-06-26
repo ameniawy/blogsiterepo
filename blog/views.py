@@ -33,7 +33,7 @@ def post(request):
 
     
 def error(request):
-	return TemplateResponse(request,'blog/error.html',{})
+	return TemplateResponse(request,'blog/error2.html',{})
 
 def add_user(request):
 	form = UserForm()
