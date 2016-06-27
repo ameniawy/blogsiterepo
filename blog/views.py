@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from blog.models import Blog
-from .forms import BlogForm, UserForm, LoginForm
+from comments.models import Comment
+from .forms import BlogForm, UserForm, LoginForm, CommentForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -11,7 +12,8 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 def home(request):
     data = Blog.objects.all()
-    return TemplateResponse(request,'blog/index2.html',{"data": data})
+    comments = Comment.objects.all()
+    return TemplateResponse(request,'blog/index2.html',{"data": data, "comments":comments})
 
 @login_required 
 def add(request):
@@ -79,7 +81,8 @@ def profile(request):
 	username = user.get_username()
 	form = BlogForm()
 	data = Blog.objects.all()
-	return TemplateResponse(request,'blog/loggedin2.html',{"data": data , "form": form ,"username": username})
+	comments = Comment.objects.all()
+	return TemplateResponse(request,'blog/loggedin2.html',{"data": data, "comments": comments , "form": form ,"username": username})
 
 
 @login_required
@@ -88,6 +91,25 @@ def filter(request):
 	username = user.get_username()
 	data = Blog.objects.all().filter(author = username)
 	form = BlogForm()
-	return TemplateResponse(request,'blog/userview2.html',{"data": data, "form": form, "username":username})
+	comments = Comment.objects.all()
+	return TemplateResponse(request,'blog/userview2.html',{"data": data, "comments": comments, "username":username, "comment":comment})
+
+def comment(request):
+	print "is here"
+	form = CommentForm(request.POST)
+
+	if form.is_valid() :
+		print "now here"
+		post = form.cleaned_data['post']
+		comment = form.cleaned_data['comment']
+		user = request.user
+		username = user.get_username()
+		newcomment = Comment.objects.create(post= post, comment= comment, username=username)
+
+	print "now there"
+	return profile(request)
+
+
+
 
 

@@ -43,6 +43,9 @@ urlpatterns = [
     url(r'^filter/', views.filter, name='filteredpage'),
     url(r'^filter', views.filter, name='filteredpage'),
 
+    url(r'^comment/', views.comment, name='comment'),
+    url(r'^comment', views.comment, name='comment'),
+
     #always keep at  bottom
     url(r'^', views.error, name='notfound'),
 ]

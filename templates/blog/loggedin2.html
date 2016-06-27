@@ -57,6 +57,9 @@
         max-width: 35%;
         max-height: 100%;
         }
+        .label-default {
+          background-color: #2D3135;
+          }
   </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -135,7 +138,32 @@
         <div class="blog">
           <h2 style="color:white;">{{blog.title}} <span class="label label-info"><i style="color:white;" class="fa fa-user fa-1x"></i> {{blog.author}}</span></h2>
           <p class="text-primary">{{blog.body}}</p>
+
+          {% for comment in comments %}
+              {% if comment.post == blog.title%}
+                <h2 style="color:white; font-size: 120%;"><span class="label label-default"><i style="color:white;" class="fa fa-user fa-1x"></i> {{comment.username}}</span>  {{comment.comment}}</h2>
+                 <!-- <p class="lead" style="color:white;">{{comment.username}}: {{comment.comment}}</p> -->
+              {% endif %}
+          {% endfor %}
+
+          <p></p>
+          
+          <form class='form-horizontal' method="POST" action="/comment/"> {% csrf_token %}
+              <div class='form-group form-group-sm' style="max-width:50%;"> 
+                    <div class="input-group">
+                    {{commentform.post}}
+                    <input type="hidden" name="post" value="{{blog.title}}" />
+                    {{commentform.comment}}
+                    <input class='form-control' type="comment" name="comment" placeholder="Comment.." />
+                      <span class='input-group-btn'>
+                    <input type='submit' value='Add' class='btn btn-primary btn-sm' />
+                    </span>
+                  </div>
+              </div>
+          </form>
         </div>
+        <hr>
+        <br>
       {% endfor %}
 
       {% endblock %}
