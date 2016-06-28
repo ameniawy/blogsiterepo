@@ -95,18 +95,18 @@ def filter(request):
 	return TemplateResponse(request,'blog/userview2.html',{"data": data, "comments": comments, "username":username, "comment":comment})
 
 def comment(request):
-	print "is here"
 	form = CommentForm(request.POST)
+	print "here"
 
 	if form.is_valid() :
-		print "now here"
+		print "hereeeee"
 		post = form.cleaned_data['post']
 		comment = form.cleaned_data['comment']
+		blog_id = form.cleaned_data['blog_id']
 		user = request.user
 		username = user.get_username()
-		newcomment = Comment.objects.create(post= post, comment= comment, username=username)
+		newcomment = Comment.objects.create(post= post, comment= comment, username=username, blog_id=blog_id)
 
-	print "now there"
 	return profile(request)
 
 

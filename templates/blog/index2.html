@@ -128,11 +128,12 @@
         <div class="blog">
           <!--<h2>{{blog.title}} <a class="btn btn-success btn-lg" href="/filter/" role="button">{{blog.author}}</a></h2>-->
           <h2 style="color:white;">{{blog.title}} <span class="label label-info"><i style="color:white;" class="fa fa-user fa-1x"></i> {{blog.author}}</span></h2>
-          <p class="text-primary">{{blog.body}}</p>
+          <p class="text-primary">{{blog.body}}</p> <p style="color:white; font-size: 85%;">{{blog.timestamp|timesince}} ago</p>
+
           {% for comment in comments %}
-              {% if comment.post == blog.title%}
+              {% if comment.blog_id == blog.id %}
                 <h2 style="color:white; font-size: 120%;"><span class="label label-default"><i style="color:white;" class="fa fa-user fa-1x"></i> {{comment.username}}</span>  {{comment.comment}}</h2>
-                 <!-- <p class="lead" style="color:white;">{{comment.username}}: {{comment.comment}}</p> -->
+                <p style="color:white; font-size: 85%;">{{comment.timestamp|timesince}} ago</p>
               {% endif %}
           {% endfor %}
 

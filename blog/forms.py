@@ -3,6 +3,7 @@ from django import forms
 class CommentForm(forms.Form):
 	post = forms.CharField(max_length=200)
 	comment = forms.CharField(max_length=300)
+	blog_id = forms.IntegerField()
 
 class BlogForm(forms.Form):
 	title = forms.CharField(label='Title:', max_length = 50000 )

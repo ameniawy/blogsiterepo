@@ -137,20 +137,25 @@
       {% for blog in data reversed %}
         <div class="blog">
           <h2 style="color:white;">{{blog.title}} <span class="label label-info"><i style="color:white;" class="fa fa-user fa-1x"></i> {{blog.author}}</span></h2>
-          <p class="text-primary">{{blog.body}}</p>
+          <p class="text-primary">{{blog.body}}</p> <p style="color:white; font-size: 85%;">{{blog.timestamp|timesince}} ago</p>
 
           {% for comment in comments %}
-              {% if comment.post == blog.title%}
+              {% if comment.blog_id == blog.id %}
                 <h2 style="color:white; font-size: 120%;"><span class="label label-default"><i style="color:white;" class="fa fa-user fa-1x"></i> {{comment.username}}</span>  {{comment.comment}}</h2>
-                 <!-- <p class="lead" style="color:white;">{{comment.username}}: {{comment.comment}}</p> -->
+                <p style="color:white; font-size: 85%;">{{comment.timestamp|timesince}} ago</p>
               {% endif %}
           {% endfor %}
+
+
+          
 
           <p></p>
           
           <form class='form-horizontal' method="POST" action="/comment/"> {% csrf_token %}
               <div class='form-group form-group-sm' style="max-width:50%;"> 
                     <div class="input-group">
+                    {{commentform.blog_id}}
+                    <input type="hidden" name="blog_id" value={{blog.id}} />  
                     {{commentform.post}}
                     <input type="hidden" name="post" value="{{blog.title}}" />
                     {{commentform.comment}}
